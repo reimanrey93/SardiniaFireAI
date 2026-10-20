@@ -38,3 +38,12 @@ outputs/models/*
 # Operating system
 .DS_Store
 Thumbs.db
+# CFVA datasets and generated outputs
+data/raw/
+data/processed/
+outputs/
+*.bak
+*.parquet
+__pycache__/
+.pytest_cache/
+.ruff_cache/
