@@ -1,0 +1,36 @@
+
+project:
+  name: SardiniaFireAI
+  study_area: Sardinia
+  country: Italy
+  crs_geographic: EPSG:4326
+  crs_projected: EPSG:32632
+
+datasets:
+  cfva:
+    name: Sardinia official wildfire records
+    provider: Regione Autonoma della Sardegna
+    data_type: wildfire_perimeters
+    format: to_be_verified
+    years:
+      start: 2019
+      end: 2025
+    directory: data/raw/cfva
+
+  firms:
+    name: NASA FIRMS Active Fire
+    provider: NASA
+    data_type: satellite_hotspots
+    sensors:
+      - VIIRS_SNPP
+      - VIIRS_NOAA20
+      - VIIRS_NOAA21
+      - MODIS_Terra
+      - MODIS_Aqua
+    directory: data/raw/firms
+
+  sentinel2:
+    name: Sentinel-2 Level-2A
+    provider: Copernicus
+    data_type: multispectral_imagery
+    directory: data/raw/sentinel2
