@@ -1,0 +1,20 @@
+﻿experiment:
+  name: st_dbscan_july_2024
+  year: 2024
+  month: 7
+
+data:
+  input_dir: data/processed/firms
+  output_path: data/processed/clustering/st_dbscan_2024_07.parquet
+  sources:
+    - VIIRS_SNPP_SP
+    - VIIRS_NOAA20_SP
+    - VIIRS_NOAA21_SP
+    - MODIS_SP
+
+clustering:
+  algorithm: st_dbscan
+  eps_space_m: 1500
+  eps_time_h: 24
+  min_samples: 3
+  metric_crs: EPSG:32632

@@ -1,0 +1,10 @@
+﻿experiment:
+  name: sardinia_event_features_2024_07
+
+features:
+  metric_crs: EPSG:32632
+  observation_group_minutes: 30
+
+data:
+  clustering_config: configs/clustering/st_dbscan.yaml
+  output_path: data/processed/features/st_dbscan_events_2024_07.parquet
