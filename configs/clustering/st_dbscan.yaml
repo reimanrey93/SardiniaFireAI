@@ -1,4 +1,4 @@
-﻿experiment:
+experiment:
   name: st_dbscan_july_2024
   year: 2024
   month: 7
@@ -14,6 +14,7 @@ data:
 
 clustering:
   algorithm: st_dbscan
+  implementation: sparse
   eps_space_m: 1500
   eps_time_h: 24
   min_samples: 3

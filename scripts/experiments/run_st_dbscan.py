@@ -1,4 +1,4 @@
-﻿"""Run the ST-DBSCAN experiment from its YAML configuration."""
+"""Run the ST-DBSCAN experiment from its YAML configuration."""
 
 from pathlib import Path
 
@@ -6,6 +6,7 @@ import geopandas as gpd
 import pandas as pd
 
 from sardinia_fire.clustering.st_dbscan import st_dbscan
+from sardinia_fire.clustering.st_dbscan_sparse import st_dbscan_sparse
 from sardinia_fire.utils.config import load_yaml
 
 
@@ -50,7 +51,21 @@ def main():
             "Current ST-DBSCAN implementation requires EPSG:32632"
         )
 
-    result = st_dbscan(
+    implementation = params.get("implementation", "dense")
+
+    algorithms = {
+        "dense": st_dbscan,
+        "sparse": st_dbscan_sparse,
+    }
+
+    if implementation not in algorithms:
+        raise ValueError(
+            f"Unknown ST-DBSCAN implementation: {implementation}"
+        )
+
+    print(f"Implementation: {implementation}")
+
+    result = algorithms[implementation](
         combined,
         eps_space_m=params["eps_space_m"],
         eps_time_h=params["eps_time_h"],

@@ -1,0 +1,18 @@
+﻿experiment:
+  name: event_matching_june_september_2024
+
+data:
+  clusters: data/processed/clustering/st_dbscan_2024_06_09.parquet
+  reference: data/processed/cfva/cfva_benchmark_reference.parquet
+  output: outputs/tables/event_matching_2024_06_09.csv
+
+evaluation:
+  reference_year: 2024
+  start_date: "2024-06-01"
+  end_date: "2024-09-30"
+  reference_start_date: "2024-05-29"
+  reference_end_date: "2024-10-03"
+  spatial_tolerance_m: 1000
+  temporal_tolerance_days: 3
+  metric_crs: EPSG:32632
+  min_matching_detections: 1
